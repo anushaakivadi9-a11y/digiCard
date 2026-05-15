@@ -27,7 +27,8 @@ export default function App() {
     <div
       style={{
         minHeight: "100vh",
-        background: "#000",
+        background:
+          "radial-gradient(circle at top, #2a1400 0%, #000000 65%)",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -39,11 +40,13 @@ export default function App() {
         style={{
           width: "620px",
           background:
-            "linear-gradient(180deg, #16110b 0%, #090807 100%)",
+            "linear-gradient(180deg, rgba(32,18,6,0.96) 0%, rgba(7,7,7,0.98) 100%)",
+          backdropFilter: "blur(18px)",
           borderRadius: "30px",
           overflow: "hidden",
-          border: "1px solid rgba(255,190,110,0.25)",
-          boxShadow: "0 0 60px rgba(255,170,80,0.18)",
+          border: "1px solid rgba(255,210,140,0.22)",
+          boxShadow:
+            "0 0 80px rgba(255,170,80,0.22), 0 0 160px rgba(255,140,0,0.08)",
           color: "#fff",
         }}
       >
@@ -66,7 +69,19 @@ export default function App() {
               position: "absolute",
               inset: 0,
               background:
-                "linear-gradient(to bottom, rgba(0,0,0,0.15), rgba(0,0,0,0.7))",
+                "linear-gradient(to bottom, rgba(20,10,0,0.08), rgba(0,0,0,0.78))",
+            }}
+          />
+
+          {/* GOLD LIGHT */}
+
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              background:
+                "radial-gradient(circle at top right, rgba(255,190,90,0.18), transparent 35%)",
+              pointerEvents: "none",
             }}
           />
         </div>
@@ -114,7 +129,10 @@ export default function App() {
               border: "1px solid rgba(255,190,110,0.15)",
               borderRadius: "24px",
               padding: "22px",
-              background: "rgba(255,255,255,0.02)",
+              background:
+                "linear-gradient(90deg, rgba(255,190,90,0.06), rgba(255,255,255,0.015))",
+              boxShadow:
+                "0 0 30px rgba(255,170,80,0.08), inset 0 0 10px rgba(255,190,120,0.03)",
             }}
           >
             <BottomBox
@@ -133,7 +151,7 @@ export default function App() {
               marginBottom: "5px",
               fontSize: "12px",
               color: "#d2a05d",
-              letterSpacing: "6px",
+              letterSpacing: "10px",
             }}
           >
             ✦ FUTURE READY ✦
@@ -161,8 +179,11 @@ const ContactCard = ({
         marginBottom: "16px",
         borderRadius: "24px",
         border: "1px solid rgba(255,190,110,0.18)",
-        background: "rgba(255,255,255,0.02)",
-        boxShadow: "0 0 20px rgba(255,170,80,0.05)",
+        background:
+          "linear-gradient(90deg, rgba(255,190,90,0.06), rgba(255,255,255,0.015))",
+        boxShadow:
+          "0 0 30px rgba(255,170,80,0.08), inset 0 0 10px rgba(255,190,120,0.03)",
+        backdropFilter: "blur(12px)",
       }}
     >
       <div
@@ -172,20 +193,26 @@ const ContactCard = ({
           gap: "15px",
         }}
       >
+        {/* ICON */}
+
         <div
           style={{
             width: "64px",
             height: "64px",
             borderRadius: "50%",
-            border: "1px solid rgba(255,220,160,0.25)",
+            border: "1px solid rgba(255,220,160,0.35)",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
             color: "#f4cf98",
+            boxShadow: "0 0 18px rgba(255,180,80,0.12)",
+            background: "rgba(255,190,90,0.04)",
           }}
         >
           {icon}
         </div>
+
+        {/* TEXT */}
 
         <div>
           <div
@@ -203,12 +230,15 @@ const ContactCard = ({
               marginTop: "4px",
               color: "#f7e1c0",
               fontSize: "20px",
+              fontWeight: 500,
             }}
           >
             {subtitle}
           </div>
         </div>
       </div>
+
+      {/* BUTTON */}
 
       <a
         href={href}
@@ -221,13 +251,16 @@ const ContactCard = ({
         <button
           style={{
             border: "1px solid rgba(255,200,120,0.2)",
-            background: "rgba(255,180,90,0.06)",
+            background:
+              "linear-gradient(135deg, rgba(255,190,90,0.18), rgba(255,140,0,0.04))",
+            boxShadow: "0 0 20px rgba(255,180,80,0.12)",
             color: "#f6d6a8",
             padding: "16px 22px",
             borderRadius: "16px",
             fontSize: "14px",
             letterSpacing: "1px",
             cursor: "pointer",
+            transition: "0.3s ease",
           }}
         >
           {button} →
@@ -257,12 +290,14 @@ const BottomBox = ({
           width: "64px",
           height: "64px",
           borderRadius: "50%",
-          border: "1px solid rgba(255,220,160,0.25)",
+          border: "1px solid rgba(255,220,160,0.35)",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           color: "#f4cf98",
           margin: "0 auto 14px auto",
+          boxShadow: "0 0 18px rgba(255,180,80,0.12)",
+          background: "rgba(255,190,90,0.04)",
         }}
       >
         {icon}
@@ -272,7 +307,8 @@ const BottomBox = ({
         style={{
           color: "#f2c98c",
           fontSize: "14px",
-          letterSpacing: "1px",
+          letterSpacing: "2px",
+          fontWeight: 500,
         }}
       >
         {title}
