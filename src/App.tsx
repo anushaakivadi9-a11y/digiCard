@@ -5,12 +5,22 @@ import {
   Phone,
   MessageCircle,
   Mail,
-  GraduationCap,
-  MapPin,
-  Code2,
-  Wifi,
   Bookmark,
 } from "lucide-react";
+
+type ContactCardProps = {
+  icon: React.ReactNode;
+  title: string;
+  subtitle: string;
+  button: string;
+  href: string;
+};
+
+type BottomBoxProps = {
+  icon: React.ReactNode;
+  title: string;
+  text: string;
+};
 
 export default function App() {
   return (
@@ -59,11 +69,6 @@ export default function App() {
                 "linear-gradient(to bottom, rgba(0,0,0,0.15), rgba(0,0,0,0.7))",
             }}
           />
-
-
-          {/* INFO BOX */}
-
-
         </div>
 
         {/* LOWER SECTION */}
@@ -101,7 +106,7 @@ export default function App() {
             href="mailto:anushaakivadi9@gmail.com"
           />
 
-          {/* NFC BOX */}
+          {/* SAVE CONTACT */}
 
           <div
             style={{
@@ -110,29 +115,13 @@ export default function App() {
               borderRadius: "24px",
               padding: "22px",
               background: "rgba(255,255,255,0.02)",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
             }}
           >
-
-
-
-            <div
-              style={{
-                width: "100%",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                textAlign: "center",
-              }}
-            >
-              <BottomBox
-                icon={<Bookmark size={26} />}
-                title="SAVE CONTACT"
-                text="Add instantly to your phone"
-              />
-            </div>
+            <BottomBox
+              icon={<Bookmark size={26} />}
+              title="SAVE CONTACT"
+              text="Add instantly to your phone"
+            />
           </div>
 
           {/* FOOTER */}
@@ -155,45 +144,13 @@ export default function App() {
   );
 }
 
-/* INFO ROW */
-
-function InfoRow({ icon, text, last }) {
-  return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        gap: "14px",
-        padding: "18px",
-        borderBottom: last
-          ? "none"
-          : "1px solid rgba(255,255,255,0.06)",
-      }}
-    >
-      <div style={{ color: "#f0c98b" }}>{icon}</div>
-
-      <div
-        style={{
-          color: "#f7e0bc",
-          fontSize: "14px",
-          letterSpacing: "1px",
-        }}
-      >
-        {text}
-      </div>
-    </div>
-  );
-}
-
-/* CONTACT CARD */
-
-function ContactCard({
+const ContactCard = ({
   icon,
   title,
   subtitle,
   button,
   href,
-}) {
+}: ContactCardProps) => {
   return (
     <div
       style={{
@@ -215,8 +172,6 @@ function ContactCard({
           gap: "15px",
         }}
       >
-        {/* ICON */}
-
         <div
           style={{
             width: "64px",
@@ -231,8 +186,6 @@ function ContactCard({
         >
           {icon}
         </div>
-
-        {/* TEXT */}
 
         <div>
           <div
@@ -256,8 +209,6 @@ function ContactCard({
           </div>
         </div>
       </div>
-
-      {/* BUTTON */}
 
       <a
         href={href}
@@ -284,11 +235,13 @@ function ContactCard({
       </a>
     </div>
   );
-}
+};
 
-/* BOTTOM BOX */
-
-function BottomBox({ icon, title, text }) {
+const BottomBox = ({
+  icon,
+  title,
+  text,
+}: BottomBoxProps) => {
   return (
     <div
       style={{
@@ -309,7 +262,6 @@ function BottomBox({ icon, title, text }) {
           justifyContent: "center",
           alignItems: "center",
           color: "#f4cf98",
-          marginBottom: "14px",
           margin: "0 auto 14px auto",
         }}
       >
@@ -338,4 +290,4 @@ function BottomBox({ icon, title, text }) {
       </div>
     </div>
   );
-}
+};
